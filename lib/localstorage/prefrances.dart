@@ -8,6 +8,8 @@ class LocalPreferences {
   static String phoneNumber ;
   static String profileUrl ;
   static String userId ;
+  static bool emailVarfied = false;
+  static bool phoneNumberVarified = false;
 
   static setLogin(bool value) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -75,6 +77,31 @@ class LocalPreferences {
     phoneNumber = prefs.getString('phone_number')?? null;
     return phoneNumber;
   }
+
+  static setEmailVarified(bool value) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setBool('email_varified', value);
+  }
+
+  static Future<bool> isEmailVarified() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    emailVarfied = prefs.getBool('email_varified')?? null;
+    return emailVarfied;
+  }
+
+
+  static setPhoneNumberVerified(bool value) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setBool('phone_number_varified', value);
+  }
+
+  static Future<bool> idPhoneNumberNumberVerified() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    phoneNumberVarified = prefs.getBool('phone_number_varified')?? null;
+    return phoneNumberVarified;
+  }
+
+
 
   static clearPreferances() async {
     SharedPreferences preferences = await SharedPreferences.getInstance();

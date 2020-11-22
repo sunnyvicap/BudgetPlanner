@@ -1,10 +1,9 @@
 import 'package:budgetplanner/Screens/Auth/signup.dart';
 import 'package:budgetplanner/Screens/Auth/userprofile.dart';
-import 'package:budgetplanner/Screens/home.dart';
 import 'package:budgetplanner/Screens/Auth/login.dart';
-import 'package:budgetplanner/Screens/newhome.dart';
+import 'package:budgetplanner/Screens/Base/index.dart';
+import 'package:budgetplanner/Screens/addexpence.dart';
 import 'package:budgetplanner/Screens/splash.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -31,7 +30,6 @@ class MyApp extends StatefulWidget {
 class _MyApp extends State<MyApp> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
 
     initializeDefault();
@@ -40,15 +38,24 @@ class _MyApp extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(primarySwatch: Colors.blue),
+      theme: ThemeData(
+         brightness: Brightness.light,
+        primaryColor: Colors.pink,
+        accentColor: Colors.pinkAccent,
+     
+     
+      ),
+     
+     
       initialRoute: '/',
       routes: {
         '/' : (context) => Splash(),
         '/login': (context) => Login(),
         '/signup': (context) => SignUp(),
         '/profile': (context) => UserProfile(),
-        '/home': (context) => Home(),
-        '/newhome': (context) => NewHome(),
+        '/home': (context) => Index(),
+        '/addexpense' :(context) => AddExpense()
+      
       },
     );
   }

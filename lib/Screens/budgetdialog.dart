@@ -47,8 +47,8 @@ class _BudgetDialogState extends State<BudgetDialog> {
 
   @override
   void initState() {
-    // TODO: implement initState
-    super.initState();
+
+  super.initState();
 
     DateTime now = DateTime.now();
     formatCDate = DateFormat('dd/MM/yyyy kk:mm a').format(now);

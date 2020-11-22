@@ -1,7 +1,5 @@
-import 'dart:async';
 
 import 'package:budgetplanner/localstorage/prefrances.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
@@ -11,7 +9,9 @@ class Splash extends StatefulWidget {
 }
 
 class _SplashState extends State<Splash> {
-  FirebaseAuth _firebaseAuth;
+   
+
+
   var isLogin;
 
   @override
@@ -25,11 +25,17 @@ class _SplashState extends State<Splash> {
   fetchLoginActive() async {
     isLogin = await LocalPreferences.checkLogin();
 
-    if(isLogin) {
+   
+ if(isLogin) {
       Navigator.pushReplacementNamed(context, '/home');
-    }else
+    }else{
       Navigator.pushReplacementNamed(context, '/login');
 
+    }
+
+    
+
+   
   }
 
 

@@ -1,5 +1,4 @@
 import 'package:budgetplanner/localstorage/prefrances.dart';
-import 'package:budgetplanner/url.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:progress_dialog/progress_dialog.dart';
@@ -200,8 +199,10 @@ class _LoginState extends State<Login> {
       })
           .catchError((error) =>
       {
+      
         progressDialog.isShowing() ? progressDialog.hide() : null,
-        Toast.show(error, context)
+    
+      
       });
     }
   }
@@ -215,7 +216,7 @@ class _LoginState extends State<Login> {
       String photoUrl = user.photoURL;
 
       bool emailVerified = user.emailVerified;
-      String phoneNumberVerified = user.phoneNumber;
+      String phoneNumber = user.phoneNumber;
       // FirebaseUser.getIdToken() instead.
       String uid = user.uid;
 
@@ -224,6 +225,10 @@ class _LoginState extends State<Login> {
       LocalPreferences.setName(name);
       LocalPreferences.setProfileUrl(photoUrl);
       LocalPreferences.setUserId(uid);
+      LocalPreferences.setEmailVarified(emailVerified);
+      LocalPreferences.setPhoneNumber(phoneNumber);
+
+      
 
       Navigator.pushReplacementNamed(context, '/profile');
 
